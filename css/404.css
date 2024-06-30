@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+/* Texte en haut de la page */
+#top {
+    margin-top: 35vh;
+    font-size: 2vw;
+    line-height: 5vh;
+    text-align: center;
+}
+
+/* Texte au centre de la page */
+#middle {
+    margin-top: 10vh;
+    font-size: 3vw;
+    text-align: center;
+}
+
+/* Lien de la page & Animation */
+#link {
+    color: #7777dd;
+    text-decoration: none transparent;
+}
+#link:hover {
+    color: #5b5bbb;
+    text-decoration: underline;
+    transition: text-decoration 1s ease;
+}
+
+/* CSS Mobile (404) */
+@media (max-width: 991px) {    
+* {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+/* Texte en haut de la page */
+#top {
+    margin-top: 20vh;
+    font-size: 6vw;
+    line-height: 4vh;
+    text-align: center;
+}
+
+/* Texte au centre de la page */
+#middle {
+    margin-top: 20vh;
+    font-size: 8vw;
+    text-align: center;
+}
+
+/* Lien de la page & Animation */
+#link {
+    color: #7777dd;
+    text-decoration: none transparent;
+}
+}
