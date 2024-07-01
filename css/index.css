@@ -6,6 +6,7 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 section {
     padding: 100px;
@@ -417,9 +418,21 @@ img {
 
     .banner {
         padding: 150px 50px 100px;
+        flex-direction: column;
+        text-align: center;
+    }
+    .banner img {
+        max-width: 200px;
+        margin-top: 70px;
+        margin-left: 50%;
+        transform: translateX(-50%);
     }
     .banner h2 {
         font-size: 1.5em;
+    }
+    .banner h3 {
+        margin-top: 10px;
+        font-size: 1.3em;
     }
 
     .btm {
@@ -453,6 +466,10 @@ img {
 
     .avis .content .avisContent h3 {
         margin-top: 20px;
+    }
+
+    .contact .content {
+        flex-direction: column;
     }
 
     .contactInfo {
