@@ -1,10 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
-    background-color: #ffffff;
-    color: #000000;
+    color: #ffffff;
     font-family: 'Poppins', sans-serif;
     overflow: hidden;
+}
+
+body {
+    background: linear-gradient(170deg, #6fc2e0, #af9bff, #d891fc);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 /* Texte en haut de la page */
@@ -24,11 +30,11 @@
 
 /* Lien de la page & Animation */
 #link {
-    color: #7777dd;
+    color: #5050c0;
     text-decoration: none transparent;
 }
 #link:hover {
-    color: #5b5bbb;
+    color: #3b3bbb;
     text-decoration: underline;
     transition: text-decoration 1s ease;
 }
