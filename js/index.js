@@ -35,6 +35,10 @@ function mail(event) {
 
     const form = event.target;
     const formData = new FormData(form);
+    const submitButton = document.getElementById('submitButton');
+
+    submitButton.value = 'Envoi...';
+    submitButton.style.backgroundColor = '#e3a739';
 
     fetch(form.action, {
         method: form.method,
@@ -45,9 +49,23 @@ function mail(event) {
     })
     .then(response => {
         if (response.ok) {
-            history.back();
+            submitButton.value = 'Envoyé !';
+            submitButton.style.backgroundColor = '#4caf50';
+            form.reset();
+            setTimeout(() => {
+                submitButton.value = 'Envoyer';
+                submitButton.style.backgroundColor = '#46449e';
+            }, 3000);
         } else {
             alert('Il y a eu un problème avec votre soumission. Veuillez réessayer.');
+            submitButton.value = 'Envoyer';
+            submitButton.style.backgroundColor = '#46449e';
         }
+    })
+    .catch(error => {
+        console.error('Erreur:', error);
+        alert('Il y a eu un problème avec votre soumission. Veuillez réessayer.');
+        submitButton.value = 'Envoyer';
+        submitButton.style.backgroundColor = '#46449e';
     });
 }
