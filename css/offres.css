@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+section {
+    padding: 100px;
+}
+
+.banner {
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(170deg, #6fc2e0, #af9bff, #d891fc);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.banner img {
+    border: 5px solid #ffffff;
+    border-radius: 100%;
+    margin-right: 50px;
+    width: 400px;
+}
+.banner h2 {
+    font-size: 3em;
+    color: #ffffff;
+    font-weight: 500;
+    line-height: 1.5em;
+}
+.banner h2 span {
+    font-size: 1.5em;
+    font-weight: 700;
+}
+.banner h3 {
+    font-size: 1.5em;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.btn {
+    user-select: none;
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(170deg, #7792dd, #7777dd, #8877dd);
+    color: #ffffff;
+    margin-top: 20px;
+    padding: 10px 30px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-weight: 500;
+    transition: 0.5s;
+}
+.btn:hover {
+    box-shadow: 0 4px 0 #5e5eb1;
+    border-radius: 10px;
+    transform: translateY(-5px);
+}
+.btn:active {
+    box-shadow: none;
+    transform: translate(0);
+    transition: 0.1s;
+}
+
+.disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.6;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 100px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.5s;
+}
+header ul {
+    position: relative;
+    display: flex;
+}
+header ul li {
+    position: relative;
+    list-style: none;
+}
+header ul li a {
+    position: relative;
+    display: inline-block;
+    margin: 0 15px;
+    color: #ffffff;
+    text-decoration: none;
+}
+header ul li a:hover {
+    color: #f0f0f0;
+    text-decoration: underline;
+}
+header .logo {
+    color: #ffffff;
+    font-size: 24px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+header .logo:hover {
+    text-decoration: underline;
+}
+
+header.sticky {
+    background: #ffffff;
+    padding: 20px 100px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+header.sticky ul li a {
+    color: #111111;
+}
+header.sticky .logo {
+    color: #111111;
+}
+
+.heading {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #111111;
+}
+.heading h2 {
+    font-weight: 600;
+    font-size: 30px;
+}
+
+img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.bar {
+    border-top: 3px solid #222222;
+    margin: 0px auto;
+    width: 80%;
+}
+
+.packs {
+    background: #ffffff;
+}
+
+.packs .heading p {
+    user-select: none;
+    display: inline-block;
+    color: #ffffff;
+    background: #8079e2;
+    margin-top: 10px;
+    padding: 5px 15px;
+    padding-left: 20px;
+    border-radius: 100px;
+    letter-spacing: 1.5px;
+}
+
+.packs .content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.packs .content .packBx {
+    padding: 50px 20px;
+    background: #f8f8f8;
+    color: #222222;
+    border-radius: 10px;
+    max-width: 380px;
+    margin: 20px;
+    text-align: center;
+    transition: 0.5s;
+}
+.packs .content .packBx:hover {
+    background: #f2f2f2;
+}
+.packs .content .packBx img {
+    max-width: 80px;
+}
+.packs .content .packBx h2 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.copyright {
+    background: #111111;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+}
+.copyright a {
+    color: #ffffff;
+}
+.copyright a:hover {
+    color: #af9bff;
+}
+    
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Mobile */
+@media (max-width: 991px) {
+    header, header.sticky {
+        padding: 20px 50px;
+        z-index: 1000;
+    }
+    header.sticky .toggle {
+        filter: invert(1);
+    }
+    header ul li a {
+        color: #111111;
+        font-size: 24px;
+        margin: 10px;
+    }
+
+    .menu {
+        position: fixed;
+        top: 75px;
+        left: -100%;
+        display: block;
+        padding: 100px 50px;
+        text-align: center;
+        width: 100%;
+        height: 100vh;
+        background: #ffffff;
+        transition: 0.5s;
+        z-index: 999;
+        border-top: 1px solid rgba(0, 0, 0, 0.2);
+    }
+    .menu.active {
+        left: 0;
+    }
+
+    .toggle {
+        width: 40px;
+        height: 40px;
+        background: url(../images/menu.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 30px;
+        cursor: pointer;
+    }
+    .toggle.active {
+        background: url(../images/fermer.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 25px;
+        cursor: pointer;
+    }
+    
+    section {
+        padding: 100px 50px;
+    }
+
+    .banner {
+        padding: 150px 50px 100px;
+        flex-direction: column;
+        text-align: center;
+    }
+    .banner img {
+        max-width: 200px;
+        margin-top: 70px;
+        margin-left: 50%;
+        transform: translateX(-50%);
+    }
+    .banner h2 {
+        font-size: 1.5em;
+    }
+    .banner h3 {
+        margin-top: 10px;
+        font-size: 1.3em;
+    }
+
+    .btm {
+        margin-top: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .heading h2 {
+        font-size: 24px;
+    }
+    .content h3 {
+        font-size: 20px;
+    }
+
+    .packs .content .packBx {
+        margin: 10px;
+    }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    header, header.sticky {
+        padding: 20px 20px;
+    }
+
+    .banner {
+        padding: 150px 20px 100px;
+    }
+    
+    section {
+        padding: 100px 20px;
+    }
+    
+    ::-webkit-scrollbar {
+        display: none;
+    }
+}
