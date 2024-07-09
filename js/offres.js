@@ -8,11 +8,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (userLang === "en") {
             if (window.location.href !== "https://en.gemsync.xyz/offres") {
-                //window.location.replace("https://en.gemsync.xyz/offres");
+                window.location.replace("https://en.gemsync.xyz/offres");
             }
         } else {
             if (window.location.href !== "https://gemsync.xyz/offres") {
-                //window.location.replace("https://gemsync.xyz/offres");
+                window.location.replace("https://gemsync.xyz/offres");
             }
         }
     }
