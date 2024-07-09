@@ -7,11 +7,11 @@ document.addEventListener("DOMContentLoaded", function() {
         var userLang = FullUserLang.slice(0, 2);
 
         if (userLang === "en") {
-            if (window.location.href !== "https://en.gemsync.xyz/offres") {
+            if (window.location.href !== "https://en.gemsync.xyz/offers") {
                 window.location.replace("https://en.gemsync.xyz/offres");
             }
         } else {
-            if (window.location.href !== "https://gemsync.xyz/offres") {
+            if (window.location.href !== "https://gemsync.xyz/offers") {
                 window.location.replace("https://gemsync.xyz/offres");
             }
         }
