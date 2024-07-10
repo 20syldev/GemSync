@@ -41,8 +41,7 @@ body {
 /* CSS Mobile (404) */
 @media (max-width: 991px) {    
     * {
-        background-color: #ffffff;
-        color: #000000;
+        color: #ffffff;
         font-family: 'Poppins', sans-serif;
         overflow: hidden;
         margin-left: 1%;
