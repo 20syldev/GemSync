@@ -363,6 +363,10 @@ img {
 
 /* Mobile */
 @media (max-width: 991px) {
+    * {
+        overflow-x: hidden;
+    }
+    
     header, header.sticky {
         padding: 20px 50px;
         z-index: 1000;
@@ -481,6 +485,10 @@ img {
 }
 
 @media (max-width: 600px) {
+    * {
+        overflow-x: hidden;
+    }
+    
     header, header.sticky {
         padding: 20px 20px;
     }
