@@ -57,8 +57,14 @@ section {
     transition: 0.5s;
 }
 .btn:hover {
-    background: #5b5bbb;
+    box-shadow: 0 4px 0 #5e5eb1;
     border-radius: 10px;
+    transform: translateY(-5px);
+}
+.btn:active {
+    box-shadow: none;
+    transform: translate(0);
+    transition: 0.1s;
 }
 
 header {
@@ -197,9 +203,12 @@ img {
     border-radius: 5px;
     transition: 0.5s;
 }
-
 .offres .content .offresBx img:hover {
     transform: scale(1.05);
+}
+.offres .content .offresBx img:active {
+    transform: scale(0.98);
+    transition: 0.1s;
 }
 
 .avis {
