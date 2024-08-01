@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 requestAnimationFrame(scrollAnimation);
             }
         }
+        window.addEventListener("load", scrollToSection);
     }
 });
 
