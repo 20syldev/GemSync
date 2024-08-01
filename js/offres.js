@@ -21,9 +21,34 @@ document.addEventListener("DOMContentLoaded", function() {
     // Défilement vers la section avec l'ID spécifié
     const sectionID = window.location.hash.substring(1);
     if (sectionID) {
-        const section = document.getElementById(sectionID);
-        if (section) {
-            section.scrollIntoView();
+        // Animer le défilement vers la section avec l'ID spécifié
+        function scrollToSection() {
+            const section = document.getElementById(sectionID);
+            if (section) {
+                const sectionOffset = section.getBoundingClientRect().top;
+                const currentScroll = window.scrollY;
+                const duration = 10;
+                const startTime = performance.now();
+    
+                function scrollAnimation(currentTime) {
+                    const elapsedTime = currentTime - startTime;
+                    const scrollProgress = Math.min(elapsedTime / duration, 1);
+                    const easedProgress = easeOutCubic(scrollProgress);
+                    const scrollTo = currentScroll + (sectionOffset * easedProgress);
+    
+                    window.scrollTo(0, scrollTo);
+    
+                    if (elapsedTime < duration) {
+                    requestAnimationFrame(scrollAnimation);
+                    }
+                }
+    
+                function easeOutCubic(t) {
+                    return (t - 1) * Math.pow(t, 2) + 1;
+                }
+    
+                requestAnimationFrame(scrollAnimation);
+            }
         }
     }
 });
