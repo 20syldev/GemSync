@@ -28,7 +28,7 @@ if (sectionID) {
         if (section) {
             const sectionOffset = section.getBoundingClientRect().top;
             const currentScroll = window.scrollY;
-            const duration = 10;
+            const duration = 100;
             const startTime = performance.now();
 
             function scrollAnimation(currentTime) {
