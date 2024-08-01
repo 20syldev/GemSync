@@ -17,11 +17,6 @@ document.addEventListener("DOMContentLoaded", function() {
     window.addEventListener('scroll', function() {
         document.querySelector('header').classList.toggle('sticky', window.scrollY > 0);
     });
-
-    // Gérer l'en-tête sticky
-    window.addEventListener('scroll', function() {
-        document.querySelector('header').classList.toggle('sticky', window.scrollY > 0);
-    });
 });
 
 function toggleMenu() {
