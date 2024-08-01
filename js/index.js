@@ -1,33 +1,32 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Redirection vers la page de la langue de l'utilisateur
-    var manual = document.cookie.split('; ').find(row => row.startsWith('user_language_preference='))?.split('=')[1];
+    const manual = document.cookie.split('; ').find(row => row.startsWith('user_language_preference='))?.split('=')[1];
 
     if (!manual) {
-        var FullUserLang = navigator.language || navigator.userLanguage;
-        var userLang = FullUserLang.slice(0, 2);
+        const userLang = (navigator.language || navigator.userLanguage).slice(0, 2);
+        const currentUrl = window.location.href;
 
-        if (userLang === "en") {
-            if (window.location.href !== "https://en.gemsync.xyz/") {
-                window.location.replace("https://en.gemsync.xyz/");
-            }
-        } else {
-            if (window.location.href !== "https://gemsync.xyz/") {
-                window.location.replace("https://gemsync.xyz/");
-            }
+        if (userLang === "en" && currentUrl !== "https://en.gemsync.xyz/") {
+            window.location.replace("https://en.gemsync.xyz/");
+        } else if (userLang !== "en" && currentUrl !== "https://gemsync.xyz/") {
+            window.location.replace("https://gemsync.xyz/");
         }
     }
+
+    // Gérer l'en-tête sticky
+    window.addEventListener('scroll', function() {
+        document.querySelector('header').classList.toggle('sticky', window.scrollY > 0);
+    });
+
+    // Gérer l'en-tête sticky
+    window.addEventListener('scroll', function() {
+        document.querySelector('header').classList.toggle('sticky', window.scrollY > 0);
+    });
 });
 
-window.addEventListener('scroll', function(){
-    var header = document.querySelector('header');
-    header.classList.toggle('sticky', window.scrollY > 0);
-});
-
-function toggleMenu(){
-    var  menuToggle = document.querySelector('.toggle');
-    var  menu = document.querySelector('.menu');
-    menuToggle.classList.toggle('active');
-    menu.classList.toggle('active');
+function toggleMenu() {
+    document.querySelector('.toggle').classList.toggle('active');
+    document.querySelector('.menu').classList.toggle('active');
 }
 
 function mail(event) {
