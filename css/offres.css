@@ -140,6 +140,7 @@ header.sticky .logo {
 }
 
 img {
+    user-select: none;
     max-width: 100%;
     border-radius: 5px;
 }
@@ -164,6 +165,12 @@ img {
     padding-left: 20px;
     border-radius: 100px;
     letter-spacing: 1.5px;
+}
+
+.packs .heading .promo {
+    display: none;
+    background: #e65e5e;
+    padding: 5px 10px;
 }
 
 .packs .content {
