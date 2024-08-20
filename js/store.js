@@ -50,10 +50,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!manual) {
         const currentUrl = window.location.href;
 
-        if (userLang === 'en' && currentUrl !== 'https://en.gemsync.xyz/offers') {
-            window.location.replace('https://en.gemsync.xyz/offers');
-        } else if (userLang !== 'en' && currentUrl !== 'https://gemsync.xyz/offres') {
-            window.location.replace('https://gemsync.xyz/offres');
+        if (userLang === 'en' && currentUrl !== 'https://en.gemsync.xyz/store') {
+            window.location.replace('https://en.gemsync.xyz/store');
+        } else if (userLang !== 'en' && currentUrl !== 'https://gemsync.xyz/store') {
+            window.location.replace('https://gemsync.xyz/store');
         }
     }
 
