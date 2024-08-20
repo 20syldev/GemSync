@@ -3,10 +3,11 @@
 * {
     color: #ffffff;
     font-family: 'Poppins', sans-serif;
+    font-weight: 500;
 }
 
 body {
-    background: linear-gradient(170deg, #6fc2e0, #af9bff, #d891fc);
+    background: linear-gradient(170deg, #6fc2e0, #af9bffec, #d891fcf8);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -29,13 +30,13 @@ body {
 
 /* Lien de la page & Animation */
 #link {
-    color: #5050c0;
+    color: #323c99;
     text-decoration: none transparent;
+    transition: 1s ease;
 }
 #link:hover {
-    color: #3b3bbb;
+    color: #364099;
     text-decoration: underline;
-    transition: text-decoration 1s ease;
 }
 
 /* CSS Mobile (404) */
