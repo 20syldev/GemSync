@@ -37,7 +37,7 @@ async function gemsync() {
                 remiseElement.textContent = `-${reductions[index]}%`;
             }
 
-            document.getElementById(`paypal${index + 1}`).href = `https://www.paypal.com/paypalme/GemSync/${price}EUR`;
+            document.getElementById(`paypal${index + 1}`).href = `https://paypal.me/GemSync/${price}EUR`;
         });
     }
 }
