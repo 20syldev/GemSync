@@ -1,15 +1,17 @@
+// Récupérer la langue du navigateur
+const userLang = (navigator.language || navigator.userLanguage).slice(0, 2);
+
 document.addEventListener('DOMContentLoaded', function() {
     // Redirection vers la page de la langue de l'utilisateur
     const manual = document.cookie.split('; ').find(row => row.startsWith('user_language_preference='))?.split('=')[1];
 
     if (!manual) {
-        const userLang = (navigator.language || navigator.userLanguage).slice(0, 2);
         const currentUrl = window.location.href;
 
         if (userLang === 'en' && currentUrl !== 'https://en.gemsync.xyz/') {
-            window.location.replace('https://en.gemsync.xyz/');
+            //window.location.replace('https://en.gemsync.xyz/');
         } else if (userLang !== 'en' && currentUrl !== 'https://gemsync.xyz/') {
-            window.location.replace('https://gemsync.xyz/');
+            //dwindow.location.replace('https://gemsync.xyz/');
         }
     }
 
@@ -19,19 +21,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-function toggleMenu() {
-    document.querySelector('.toggle').classList.toggle('active');
-    document.querySelector('.menu').classList.toggle('active');
-}
-
+// Onglet de contact par mail
 function mail(event) {
     event.preventDefault();
 
     const form = event.target;
     const formData = new FormData(form);
     const submitButton = document.getElementById('submitButton');
-
-    submitButton.value = 'Envoi...';
+    
+    if (userLang === 'en') {
+        submitButton.value = 'Sending...';
+    } else if (userLang !== 'en') {
+        submitButton.value = 'Envoi...';
+    }
     submitButton.style.backgroundColor = '#e3a739';
 
     fetch(form.action, {
@@ -43,23 +45,35 @@ function mail(event) {
     })
     .then(response => {
         if (response.ok) {
+            if (userLang === 'en') {
+                submitButton.value = 'Sent !';
+            } else if (userLang !== 'en') {
+                submitButton.value = 'Envoyé !';
+            }
             submitButton.value = 'Envoyé !';
             submitButton.style.backgroundColor = '#4caf50';
             form.reset();
             setTimeout(() => {
-                submitButton.value = 'Envoyer';
+                if (userLang === 'en') {
+                    submitButton.value = 'Send';
+                } else if (userLang !== 'en') {
+                    submitButton.value = 'Envoyer';
+                }
                 submitButton.style.backgroundColor = '#46449e';
             }, 3000);
         } else {
-            alert('Il y a eu un problème avec votre soumission. Veuillez réessayer.');
-            submitButton.value = 'Envoyer';
+            if (userLang === 'en') {
+                submitButton.value = 'Send';
+            } else if (userLang !== 'en') {
+                submitButton.value = 'Envoyer';
+            }
             submitButton.style.backgroundColor = '#46449e';
         }
-    })
-    .catch(error => {
-        console.error('Erreur:', error);
-        alert('Il y a eu un problème avec votre soumission. Veuillez réessayer.');
-        submitButton.value = 'Envoyer';
-        submitButton.style.backgroundColor = '#46449e';
     });
+}
+
+// Fonction pour la version mobile
+function toggleMenu() {
+    document.querySelector('.toggle').classList.toggle('active');
+    document.querySelector('.menu').classList.toggle('active');
 }
