@@ -1,21 +1,17 @@
-// Récupérer la langue du navigateur
+// Récupérer la langue du navigateur et l'URL
 const userLang = (navigator.language || navigator.userLanguage).slice(0, 2);
+const url = userLang === 'en' ? 'https://en.gemsync.xyz/store' : 'https://gemsync.xyz/store';
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Redirection vers la page de la langue de l'utilisateur
-    const manual = document.cookie.split('; ').find(row => row.startsWith('user_language_preference='))?.split('=')[1];
-
-    if (!manual) {
-        const currentUrl = window.location.href;
-
-        if (userLang === 'en' && currentUrl !== 'https://en.gemsync.xyz/store') {
-            window.location.replace('https://en.gemsync.xyz/store');
-        } else if (userLang !== 'en' && currentUrl !== 'https://gemsync.xyz/store') {
-            window.location.replace('https://gemsync.xyz/store');
-        }
+document.addEventListener('DOMContentLoaded', () => {
+    // Redirection et gestion de l'en-tête sticky
+    if (!document.cookie.includes('user_language_preference=') && window.location.href !== url) {
+        window.location.replace(url);
     }
+    document.querySelector('header').classList.toggle('sticky', window.scrollY > 0);
+});
 
-    // Vérifier si l'en-tête est scrollée ou non, si oui, activer le sticky
+// Gérer l'en-tête sticky
+window.addEventListener('scroll', () => {
     document.querySelector('header').classList.toggle('sticky', window.scrollY > 0);
 });
 
@@ -23,27 +19,17 @@ document.addEventListener('DOMContentLoaded', function() {
 document.querySelectorAll('.domain').forEach(box => {
     const info = document.createElement('p');
     info.className = 'domain-info';
-    const message = userLang === 'en'
+    info.textContent = userLang === 'en'
         ? 'Depending on availability and pack price.'
         : 'Selon disponibilité et dans la limite du prix du pack.';
-    info.textContent = message;
     box.appendChild(info);
 
-    box.addEventListener('mouseover', function() {
-        this.style.position = 'relative';
-        const info = this.querySelector('.domain-info');
+    box.addEventListener('mouseover', () => {
         info.classList.add('show');
     });
-
-    box.addEventListener('mouseout', function() {
-        const info = this.querySelector('.domain-info');
+    box.addEventListener('mouseout', () => {
         info.classList.remove('show');
     });
-});
-    
-// Gérer l'en-tête sticky
-window.addEventListener('scroll', function() {
-    document.querySelector('header').classList.toggle('sticky', window.scrollY > 0);
 });
 
 // Fonction pour la version mobile
