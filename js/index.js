@@ -1,21 +1,13 @@
-// Récupérer la langue du navigateur
+// Récupérer la langue du navigateur et l'URL
 const userLang = (navigator.language || navigator.userLanguage).slice(0, 2);
+const isEnglish = userLang === 'en';
+const url = isEnglish ? 'https://en.gemsync.xyz/' : 'https://gemsync.xyz/';
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Redirection vers la page de la langue de l'utilisateur
-    const manual = document.cookie.split('; ').find(row => row.startsWith('user_language_preference='))?.split('=')[1];
-
-    if (!manual) {
-        const currentUrl = window.location.href;
-
-        if (userLang === 'en' && currentUrl !== 'https://en.gemsync.xyz/') {
-            window.location.replace('https://en.gemsync.xyz/');
-        } else if (userLang !== 'en' && currentUrl !== 'https://gemsync.xyz/') {
-            window.location.replace('https://gemsync.xyz/');
-        }
+document.addEventListener('DOMContentLoaded', () => {
+    // Redirection et gestion de l'en-tête sticky
+    if (!document.cookie.includes('user_language_preference=') && window.location.href !== url) {
+        window.location.replace(url);
     }
-
-    // Vérifier si l'en-tête est scrollée ou non, si oui, activer le sticky
     document.querySelector('header').classList.toggle('sticky', window.scrollY > 0);
 });
 
@@ -27,52 +19,24 @@ window.addEventListener('scroll', function() {
 // Onglet de contact par mail
 function mail(event) {
     event.preventDefault();
-
     const form = event.target;
-    const formData = new FormData(form);
     const submitButton = document.getElementById('submitButton');
     
-    if (userLang === 'en') {
-        submitButton.value = 'Sending...';
-    } else if (userLang !== 'en') {
-        submitButton.value = 'Envoi...';
-    }
+    const status = response => {
+        submitButton.value = response.ok ? (isEnglish ? 'Sent !' : 'Envoyé !') : (isEnglish ? 'Send' : 'Envoyer');
+        submitButton.style.backgroundColor = response.ok ? '#4caf50' : '#46449e';
+        form.reset();
+        setTimeout(() => {
+            submitButton.value = isEnglish ? 'Send' : 'Envoyer';
+            submitButton.style.backgroundColor = '#46449e';
+        }, 3000);
+    };
+
+    submitButton.value = isEnglish ? 'Sending...' : 'Envoi...';
     submitButton.style.backgroundColor = '#e3a739';
 
-    fetch(form.action, {
-        method: form.method,
-        body: formData,
-        headers: {
-            'Accept': 'application/json'
-        }
-    })
-    .then(response => {
-        if (response.ok) {
-            if (userLang === 'en') {
-                submitButton.value = 'Sent !';
-            } else if (userLang !== 'en') {
-                submitButton.value = 'Envoyé !';
-            }
-            submitButton.value = 'Envoyé !';
-            submitButton.style.backgroundColor = '#4caf50';
-            form.reset();
-            setTimeout(() => {
-                if (userLang === 'en') {
-                    submitButton.value = 'Send';
-                } else if (userLang !== 'en') {
-                    submitButton.value = 'Envoyer';
-                }
-                submitButton.style.backgroundColor = '#46449e';
-            }, 3000);
-        } else {
-            if (userLang === 'en') {
-                submitButton.value = 'Send';
-            } else if (userLang !== 'en') {
-                submitButton.value = 'Envoyer';
-            }
-            submitButton.style.backgroundColor = '#46449e';
-        }
-    });
+    fetch(form.action, { method: form.method, body: new FormData(form), headers: { 'Accept': 'application/json' } })
+        .then(status);
 }
 
 // Fonction pour la version mobile
