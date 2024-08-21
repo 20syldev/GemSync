@@ -14,11 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.replace('https://gemsync.xyz/store');
         }
     }
-    
-    // Gérer l'en-tête sticky
-    window.addEventListener('scroll', function() {
-        document.querySelector('header').classList.toggle('sticky', window.scrollY > 0);
-    });
+
+    // Vérifier si l'en-tête est scrollée ou non, si oui, activer le sticky
+    document.querySelector('header').classList.toggle('sticky', window.scrollY > 0);
 });
 
 // Afficher les conditions de nom de domaine
@@ -41,6 +39,11 @@ document.querySelectorAll('.domain').forEach(box => {
         const info = this.querySelector('.domain-info');
         info.classList.remove('show');
     });
+});
+    
+// Gérer l'en-tête sticky
+window.addEventListener('scroll', function() {
+    document.querySelector('header').classList.toggle('sticky', window.scrollY > 0);
 });
 
 // Fonction pour la version mobile
