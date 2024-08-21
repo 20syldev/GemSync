@@ -9,16 +9,19 @@ document.addEventListener('DOMContentLoaded', function() {
         const currentUrl = window.location.href;
 
         if (userLang === 'en' && currentUrl !== 'https://en.gemsync.xyz/') {
-            //window.location.replace('https://en.gemsync.xyz/');
+            window.location.replace('https://en.gemsync.xyz/');
         } else if (userLang !== 'en' && currentUrl !== 'https://gemsync.xyz/') {
-            //dwindow.location.replace('https://gemsync.xyz/');
+            window.location.replace('https://gemsync.xyz/');
         }
     }
 
-    // Gérer l'en-tête sticky
-    window.addEventListener('scroll', function() {
-        document.querySelector('header').classList.toggle('sticky', window.scrollY > 0);
-    });
+    // Vérifier si l'en-tête est scrollée ou non, si oui, activer le sticky
+    document.querySelector('header').classList.toggle('sticky', window.scrollY > 0);
+});
+
+// Gérer l'en-tête sticky
+window.addEventListener('scroll', function() {
+    document.querySelector('header').classList.toggle('sticky', window.scrollY > 0);
 });
 
 // Onglet de contact par mail
