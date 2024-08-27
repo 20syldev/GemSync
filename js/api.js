@@ -14,7 +14,7 @@ const firebaseConfig = {
 // Initialiser Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const docRef = doc(db, 'infos', 'gemsync');
+const docRef = doc(db, 'gemsync', 'infos');
 
 // Fonction pour récupérer les données
 async function gemsync() {
