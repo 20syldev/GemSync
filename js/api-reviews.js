@@ -14,26 +14,23 @@ const firebaseConfig = {
 // Initialiser Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const reviews = doc(db, 'gemsync', 'reviews');
-const changeInterval = 10000;
-
-let reviewsTab = [];
+const reviews = doc(db, 'gemsync', navigator.language.startsWith('en') ? 'reviewsEN' : 'reviewsFR');
 
 // Fonction pour récupérer les avis et les stocker
 async function gemsync() {
     const docSnap = await getDoc(reviews);
     if (docSnap.exists()) {
-        reviewsTab = Array.from({ length: 6 }, (_, i) => ({
+        const reviewsTab = Array.from({ length: 6 }, (_, i) => ({
             review: docSnap.get(`review${i + 1}`),
             name: docSnap.get(`name${i + 1}`),
             job: docSnap.get(`job${i + 1}`)
         }));
-        reviewCycle();
+        reviewCycle(reviewsTab);
     }
 }
 
 // Fonction pour mettre à jour les avis affichés de manière décalée
-function reviewCycle() {
+function reviewCycle(reviewsTab) {
     let currentIndex = 0;
     const reviewElements = document.querySelectorAll('.reviewsContent');
 
@@ -44,7 +41,7 @@ function reviewCycle() {
             element.querySelector('h3').innerHTML = `${name}<br><span>${job}</span>`;
         });
         currentIndex = (currentIndex + 2) % reviewsTab.length;
-        setTimeout(updateReviews, changeInterval);
+        setTimeout(updateReviews, 10000);
     }
     updateReviews();
 }
