@@ -9,16 +9,16 @@ const firebaseConfig = {
     storageBucket: "api-20syl.appspot.com",
     messagingSenderId: "18523544518",
     appId: "1:18523544518:web:3c18c082bef03cce92b0c7"
-}
+};
 
 // Initialiser Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const docRef = doc(db, 'gemsync', 'infos');
+const pricing = doc(db, 'gemsync', 'pricing');
 
 // Fonction pour récupérer les données
 async function gemsync() {
-    const docSnap = await getDoc(docRef);
+    const docSnap = await getDoc(pricing);
     if (docSnap.exists()) {
         const data = docSnap.data();
         const reductions = [data.reduction1, data.reduction2, data.reduction3, data.reduction4];
@@ -41,4 +41,4 @@ async function gemsync() {
         });
     }
 }
-gemsync()
+gemsync();
