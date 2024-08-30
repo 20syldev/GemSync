@@ -15,23 +15,6 @@ window.addEventListener('scroll', () => {
     document.querySelector('header').classList.toggle('sticky', window.scrollY > 0);
 });
 
-// Afficher les conditions de nom de domaine
-document.querySelectorAll('.domain').forEach(box => {
-    const info = document.createElement('p');
-    info.className = 'domain-info';
-    info.textContent = userLang === 'en'
-        ? 'Depending on availability and pack price.'
-        : 'Selon disponibilité et dans la limite du prix du pack.';
-    box.appendChild(info);
-
-    box.addEventListener('mouseover', () => {
-        info.classList.add('show');
-    });
-    box.addEventListener('mouseout', () => {
-        info.classList.remove('show');
-    });
-});
-
 // Fonction pour la version mobile
 function toggleMenu() {
     document.querySelector('.toggle').classList.toggle('active');
