@@ -22,21 +22,22 @@ async function gemsync() {
     if (docSnap.exists()) {
         const data = docSnap.data();
         const reductions = [data.reduction1, data.reduction2, data.reduction3, data.reduction4];
-        const prices = [data.standard, data.plus, data.premium, data.pro].map((price, index) => 
-            (price * (1 - reductions[index] / 100)).toFixed(2)
-        );
+        const prices = [data.standard, data.plus, data.premium, data.pro];
 
         prices.forEach((price, index) => {
             const priceElement = document.getElementById(`price${index + 1}`);
             const remiseElement = document.getElementById(`remise${index + 1}`);
-            priceElement.innerHTML = `${data[`type${index + 1}`]}€`;
-
-            if (reductions[index] !== '0') {
-                priceElement.innerHTML = `${price}€`;
+            
+            if (reductions[index] && reductions[index] !== '0') {
+                const reducedPrice = (price * (1 - reductions[index] / 100)).toFixed(2);
+                priceElement.innerHTML = `${reducedPrice}€`;
                 remiseElement.style.display = 'inline-block';
                 remiseElement.textContent = `-${reductions[index]}%`;
+            } else {
+                priceElement.innerHTML = `${price}€`;
+                remiseElement.style.display = 'none';
             }
-
+            
             document.getElementById(`paypal${index + 1}`).href = `https://paypal.me/GemSync/${price}EUR`;
         });
     }
