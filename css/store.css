@@ -199,6 +199,15 @@ img {
     font-size: 20px;
     font-weight: 600;
 }
+.packs .content .packBx .ast {
+    user-select: none;
+    color: #ff0000;
+    font-weight: 500;
+    text-decoration: none;
+}
+.packs .content .packBx .ast:hover {
+    color: #ff5555;
+}
 
 .copyright {
     background: #111111;
