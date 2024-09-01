@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+section {
+    padding: 70px 100px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 100px;
+    z-index: 1000;
+    text-align: center;
+    transition: 0.5s;
+}
+header .logo {
+    color: #ffffff;
+    font-size: 24px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+header .logo:hover {
+    text-decoration: underline;
+}
+
+header.sticky {
+    background: #ffffff;
+    padding: 20px 100px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+header.sticky ul li a {
+    color: #111111;
+}
+header.sticky .logo {
+    color: #111111;
+}
+
+.heading {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #111111;
+}
+.heading h2 {
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.content h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.content a {
+    color: #4444ff;
+    text-decoration: none;
+}
+.content a:hover {
+    text-decoration: underline;
+}
+.content p {
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+.copyright {
+    background: #111111;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+}
+.copyright a {
+    color: #ffffff;
+}
+.copyright a:hover {
+    color: #7777dd;
+}
+    
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Mobile */
+@media (max-width: 991px) {
+    * {
+        overflow-x: hidden;
+    }
+    
+    header, header.sticky {
+        padding: 20px 50px;
+        z-index: 1000;
+    }
+    header.sticky .toggle {
+        filter: invert(1);
+    }
+
+    section {
+        padding: 100px 50px;
+    }
+
+    .heading h2 {
+        font-size: 24px;
+    }
+    .content h3 {
+        font-size: 20px;
+    }
+    
+    ::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    * {
+        overflow-x: hidden;
+    }
+    
+    header, header.sticky {
+        padding: 20px 20px;
+    }
+    
+    section {
+        padding: 100px 20px;
+    }
+    
+    ::-webkit-scrollbar {
+        display: none;
+    }
+}
