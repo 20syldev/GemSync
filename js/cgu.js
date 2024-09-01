@@ -1,6 +1,6 @@
 // Récupérer la langue du navigateur et l'URL
 const userLang = (navigator.language || navigator.userLanguage).slice(0, 2);
-const url = userLang === 'en' ? 'https://en.gemsync.xyz/cgu' : 'https://gemsync.xyz/cgu';
+const url = userLang === 'en' ? 'https://en.gemsync.xyz/gcu' : 'https://gemsync.xyz/cgu';
 
 document.addEventListener('DOMContentLoaded', () => {
     // Redirection et gestion de l'en-tête sticky
