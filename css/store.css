@@ -115,7 +115,6 @@ header .logo {
 header .logo:hover {
     text-decoration: underline;
 }
-
 header.sticky {
     background: #ffffff;
     padding: 20px 100px;
@@ -154,7 +153,6 @@ img {
 .packs {
     background: #ffffff;
 }
-
 .packs .heading p {
     user-select: none;
     display: inline-block;
@@ -166,13 +164,11 @@ img {
     border-radius: 100px;
     letter-spacing: 1.5px;
 }
-
 .packs .heading .promo {
     display: none;
     background: #e65e5e;
     padding: 5px 10px;
 }
-
 .packs .content {
     display: flex;
     justify-content: center;
@@ -306,6 +302,7 @@ img {
     .heading h2 {
         font-size: 24px;
     }
+    
     .content h3 {
         font-size: 20px;
     }
