@@ -113,6 +113,10 @@ header.sticky .logo {
     .content h3 {
         font-size: 20px;
     }
+
+    .copyright {
+        font-size: 14px;
+    }
     
     ::-webkit-scrollbar {
         display: none;
