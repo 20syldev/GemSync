@@ -311,6 +311,10 @@ img {
         margin: 10px;
     }
 
+    .copyright {
+        font-size: 14px;
+    }
+
     ::-webkit-scrollbar {
         display: none;
     }
