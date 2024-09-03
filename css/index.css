@@ -513,6 +513,10 @@ img {
     .contactInfo {
         margin: 20px 0;
     }
+
+    .copyright {
+        font-size: 14px;
+    }
     
     ::-webkit-scrollbar {
         display: none;
