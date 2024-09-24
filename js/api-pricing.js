@@ -37,7 +37,7 @@ async function gemsync() {
                 paypalElement.href = `https://paypal.me/GemSync/${reducedPrice}EUR`;
                 
                 tippy(priceElement, {
-                    content: `<span style="padding: 10px;">Au lieu de <strong>${price}€</strong></span>`,
+                    content: `<span style="padding: 10px;">${navigator.language.startsWith('en') ? 'Instead of' : 'Au lieu de'} <strong>${price}€</strong></span>`,
                     placement: 'right',
                     allowHTML: true,
                     duration: '1000',
