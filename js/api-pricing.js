@@ -33,6 +33,13 @@ async function gemsync() {
                 priceElement.innerHTML = `${reducedPrice}€`;
                 remiseElement.style.display = 'inline-block';
                 remiseElement.textContent = `-${reductions[index]}%`;
+                
+                tippy(priceElement, {
+                    content: `<span style="padding: 10px;">Au lieu de <strong>${price}€</strong></span>`,
+                    placement: 'right',
+                    allowHTML: true,
+                    duration: '1000',
+                });
             } else {
                 priceElement.innerHTML = `${price}€`;
                 remiseElement.style.display = 'none';
