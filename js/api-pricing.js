@@ -27,12 +27,14 @@ async function gemsync() {
         prices.forEach((price, index) => {
             const priceElement = document.getElementById(`price${index + 1}`);
             const remiseElement = document.getElementById(`remise${index + 1}`);
+            const paypalElement = document.getElementById(`paypal${index + 1}`);
             
             if (reductions[index] && reductions[index] !== '0') {
                 const reducedPrice = (price * (1 - reductions[index] / 100)).toFixed(2);
                 priceElement.innerHTML = `${reducedPrice}€`;
                 remiseElement.style.display = 'inline-block';
                 remiseElement.textContent = `-${reductions[index]}%`;
+                paypalElement.href = `https://paypal.me/GemSync/${reducedPrice}EUR`;
                 
                 tippy(priceElement, {
                     content: `<span style="padding: 10px;">Au lieu de <strong>${price}€</strong></span>`,
@@ -43,9 +45,8 @@ async function gemsync() {
             } else {
                 priceElement.innerHTML = `${price}€`;
                 remiseElement.style.display = 'none';
+                paypalElement.href = `https://paypal.me/GemSync/${price}EUR`;
             }
-            
-            document.getElementById(`paypal${index + 1}`).href = `https://paypal.me/GemSync/${price}EUR`;
         });
     }
 }
