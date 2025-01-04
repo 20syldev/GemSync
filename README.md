@@ -2,7 +2,7 @@
   <a href="https://gemsync.xyz"><img src="https://gemsync.xyz/assets/images/gemsync.png" alt="Logo" width="25%" height="auto"/></a>
 
   # GemSync - Configuration DNS
-  [![Version](https://custom-icon-badges.demolab.com/badge/Site%20:-v1.2.0-6479ee?logo=gemsync%20&labelColor=23272A)](https://github.com/20syldev/GemSync/releases/latest)
+  [![Version](https://custom-icon-badges.demolab.com/badge/Site%20:-v1.2.1-6479ee?logo=gemsync%20&labelColor=23272A)](https://github.com/20syldev/GemSync/releases/latest)
 </div>
 
 ---
