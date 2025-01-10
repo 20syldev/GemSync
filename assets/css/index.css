@@ -232,14 +232,14 @@ img {
     background-position: center;
 }
 .offers .content .offersBx .pack-preview ul li .check {
-    background-image: url('../assets/images/check.png');
+    background-image: url('../images/check.png');
     filter: brightness(0) saturate(100%) invert(43%) sepia(36%) saturate(2894%) hue-rotate(221deg) brightness(87%) contrast(93%);
     width: 16px;
     height: 16px;
     margin-left: 1.75px;
 }
 .offers .content .offersBx .pack-preview ul li .cross {
-    background-image: url('../assets/images/cross.png');
+    background-image: url('../images/cross.png');
     filter: brightness(0) saturate(100%) invert(50%) sepia(54%) saturate(541%) hue-rotate(314deg) brightness(89%) contrast(90%);
     width: 18px;
     height: 18px;
@@ -443,14 +443,14 @@ img {
     .toggle {
         width: 40px;
         height: 40px;
-        background: url(../assets/images/menu.png);
+        background: url(../images/menu.png);
         background-position: center;
         background-repeat: no-repeat;
         background-size: 30px;
         cursor: pointer;
     }
     .toggle.active {
-        background: url(../assets/images/fermer.png);
+        background: url(../images/fermer.png);
         background-position: center;
         background-repeat: no-repeat;
         background-size: 25px;
